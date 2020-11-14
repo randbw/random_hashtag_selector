@@ -19,12 +19,11 @@ fn main() {
             }
         }
 
-        let hashtags_veccaz = Vec::from_iter(read_hashtags.iter().cloned());
+        let hashtag_vec = Vec::from_iter(read_hashtags.iter().cloned());
 
         while hashtags_to_use.len() < 30 {
             let index = rng.gen_range(0, read_hashtags.len());
-            hashtags_to_use.insert(hashtags_veccaz[index].to_string());
-            println!("hash at ind {} is {}", index, hashtags_veccaz[index].to_string());
+            hashtags_to_use.insert(hashtag_vec[index].to_string());
         }
 
         for hashtag in hashtags_to_use {
