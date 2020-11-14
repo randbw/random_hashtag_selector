@@ -4,19 +4,15 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 use std::vec::Vec;
-use std::env;
 use std::iter::FromIterator;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
     let mut read_hashtags = HashSet::new();
     let mut rng = rand::thread_rng();
     let mut hashtags_to_use = HashSet::new();
     let mut hashtags_to_print = String::new();
 
-    let filename = &args[1];
-
-    if let Ok(lines) = read_lines(filename) {
+    if let Ok(lines) = read_lines("./hashtags.txt") {
         for line in lines {
             if let Ok(hashtag) = line {
                 read_hashtags.insert(hashtag.to_string());
